@@ -24,7 +24,12 @@ const routes = [
     path: '/p1',
     name: 'p1',
     component: () => import(/* webpackChunkName: "about" */ '../views/P1.vue')
-  }
+  },
+  {
+    path: '/p3',
+    name: 'p3',
+    component: () => import(/* webpackChunkName: "about" */ '../views/P3.vue')
+  },
 ]
 
 const router = new VueRouter({
