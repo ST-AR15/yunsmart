@@ -62,18 +62,31 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+}
+
+main {
+  margin: 0 0 0 0 !important;
+  padding: 0 0 0 0 !important;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 header ul {
   list-style: none;
   display: flex;
 }
+
 .el-container {
   height: 100vh
 }
+
 body {
   /* background-color: rgb(1,45,72); */
 }
