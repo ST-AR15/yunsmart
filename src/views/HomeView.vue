@@ -491,8 +491,10 @@ export default {
 
 <style>
 .home {
-  min-height: 900px;
-  min-width: 900px;
+  /* min-height: 900px;
+  min-width: 900px; */
+  width: 100%;
+  height: 100%;
   display: grid;
   gap: 0%;
   grid-template-columns: 25% 25% 25% 25%;
