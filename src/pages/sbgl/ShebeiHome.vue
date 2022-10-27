@@ -1,18 +1,18 @@
 <template>
-  <div class="p2">
-    <div class="p2-zoom1">
-      <div class="p2-zoom1-charts"></div>
-      <div class="p2-zoom1-charts"></div>
-      <div class="p2-zoom1-charts"></div>
-      <div class="p2-zoom1-charts"></div>
-      <div class="p2-zoom1-charts"></div>
-      <div class="p2-zoom1-charts"></div>
+  <div class="shebei-home">
+    <div class="shebei-home-zoom1">
+      <div class="shebei-home-zoom1-charts"></div>
+      <div class="shebei-home-zoom1-charts"></div>
+      <div class="shebei-home-zoom1-charts"></div>
+      <div class="shebei-home-zoom1-charts"></div>
+      <div class="shebei-home-zoom1-charts"></div>
+      <div class="shebei-home-zoom1-charts"></div>
     </div>
-    <div class="p2-zoom2">
-      <div class="p2-zoom2-charts"></div>
-      <div class="p2-zoom2-charts"></div>
+    <div class="shebei-home-zoom2">
+      <div class="shebei-home-zoom2-charts"></div>
+      <div class="shebei-home-zoom2-charts"></div>
     </div>
-    <div class="p2-zoom3"></div>
+    <div class="shebei-home-zoom3"></div>
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style>
-.p2 {
+.shebei-home {
   width: 100%;
   height: 100%;
   display: grid;
@@ -31,7 +31,7 @@ export default {
   grid-template-rows: 75% 25%;
   grid-gap: 20px;
 }
-.p2-zoom1 {
+.shebei-home-zoom1 {
   grid-column: 1/2;
   display: flex;
   flex-wrap: wrap;
@@ -40,12 +40,12 @@ export default {
   border: 4px solid blue;
   padding: 20px;
 }
-.p2-zoom1-charts {
+.shebei-home-zoom1-charts {
   width: 30%;
   height: 40%;
   background-color: red;
 }
-.p2-zoom2 {
+.shebei-home-zoom2 {
   grid-column: 2/3;
   border: 4px solid blue;
   display: flex;
@@ -53,12 +53,12 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.p2-zoom2-charts {
+.shebei-home-zoom2-charts {
   width: 90%;
   height: 40%;
   background-color: brown;
 }
-.p2-zoom3 {
+.shebei-home-zoom3 {
   grid-column: 1/3;
   border: 4px solid blue;
   background-color: blueviolet;

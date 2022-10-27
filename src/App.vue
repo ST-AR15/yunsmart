@@ -97,52 +97,33 @@
     </header>
     <section>
       <aside>
-        <el-menu class="el-menu-vertical-demo" :router="true" @open="handleOpen" v-if="testRoom == 0" :default-active="$route.path">
+        <el-menu class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleOpen" v-if="testRoom == 0" :default-active="$router.name">
           <el-submenu index="1">
             <span slot="title">测试</span>
             <el-menu-item index="/">首页</el-menu-item>
-            <el-menu-item index="/p1">数字安防首页</el-menu-item>
-            <el-menu-item index="/p2">设备首页</el-menu-item>
-            <el-menu-item index="/p3">设备管理1</el-menu-item>
-            <el-menu-item index="/p4">设备管理2</el-menu-item>
+            <el-menu-item>(已迁移至数字安防的主菜单)</el-menu-item>
+            <el-menu-item>(已迁移至设备管理的主菜单)</el-menu-item>
+            <el-menu-item>(已迁移至设备管理-第一种)</el-menu-item>
+            <el-menu-item>(已迁移至设备管理-第二种)</el-menu-item>
             <el-menu-item index="/p5">设备管理3</el-menu-item>
             <el-menu-item index="/p6">设备管理4</el-menu-item>
-            <el-menu-item index="/p7">数据统计1</el-menu-item>
-            <el-menu-item index="/p8">数据统计2</el-menu-item>
+            <el-menu-item>（已迁移至统计-能耗）</el-menu-item>
+            <el-menu-item>（已迁移至统计-环境）</el-menu-item>
           </el-submenu>
-          <el-submenu index="p1">
+          <el-submenu index="szaf">
             <span slot="title">数字安防</span>
-            <el-menu-item>监控系统</el-menu-item>
-            <el-menu-item>周界防范</el-menu-item>
-            <el-menu-item>安防报警</el-menu-item>
-            <el-menu-item>出入管理</el-menu-item>
-            <el-menu-item>电子巡更</el-menu-item>
-            <el-menu-item>停车管理</el-menu-item>
+            <el-menu-item>（这里还没有内容）</el-menu-item>
           </el-submenu>
-          <el-submenu index="3">
-            <span slot="title">远程抄表</span>
-            <el-menu-item>水表</el-menu-item>
-            <el-menu-item>电表</el-menu-item>
-            <el-menu-item>燃气表</el-menu-item>
-          </el-submenu>
-          <el-submenu index="4">
+          <el-submenu index="sbgl">
             <span slot="title">设备管理</span>
-            <el-menu-item>灯光控制</el-menu-item>
-            <el-menu-item>空调控制</el-menu-item>
-            <el-menu-item>电器控制</el-menu-item>
-            <el-menu-item>机房控制</el-menu-item>
-            <el-menu-item>停车引导</el-menu-item>
-            <el-menu-item>无线wifi覆盖</el-menu-item>
+            <el-menu-item index="/sbgl/type1">第一种的设备状态</el-menu-item>
+            <el-menu-item index="/sbgl/type2">第二种的灯光控制</el-menu-item>
           </el-submenu>
-          <el-menu-item index="5">
-            <span slot="title">门禁管理</span>
-          </el-menu-item>
-          <el-menu-item index="6">
-            <span slot="title">信息发布</span>
-          </el-menu-item>
-          <el-menu-item index="7">
-            <span slot="title">智能广播</span>
-          </el-menu-item>
+          <el-submenu index="tj">
+            <span slot="title">统计</span>
+            <el-menu-item index="/tj/nh">能耗</el-menu-item>
+            <el-menu-item index="/tj/hj">环境</el-menu-item>
+          </el-submenu>
         </el-menu>
         <div class="test-room1" v-if="testRoom == 1">
           <p>楼栋：写字楼A</p>
@@ -209,10 +190,8 @@ export default {
       this.isform = false;
     },
     handleOpen(key) {
-      console.log(key);
-      const list = ['p1'];
+      const list = ['szaf', 'sbgl'];
       if(list.indexOf(key) + 1) {
-        console.log('qwq');
         this.$router.push('/' + key);
       }
     },
@@ -228,6 +207,9 @@ export default {
     test(a) {
       console.log(a);
     }
+  },
+  mounted() {
+    this.$router.push('/');
   }
 }
 </script>
@@ -235,8 +217,8 @@ export default {
 <style>
 /* 全局 */
 :root {
-  --theme-dark: rgb(1,40,64);
-  --theme-light: rgb(1,45,72);
+  --theme-dark: rgb(0, 97, 158);
+  --theme-light: rgb(4, 85, 136);
 }
 
 * {
@@ -275,6 +257,7 @@ aside {
   width: 14%;
   height: 100%;
   background-color: var(--theme-dark);
+  overflow: scroll;
 }
 
 main {
@@ -283,6 +266,7 @@ main {
   height: 100%;
   background-color: var(--theme-light);
   padding: 20px;
+  box-sizing: border-box;
 }
 
 main > div {

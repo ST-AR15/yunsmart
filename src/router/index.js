@@ -1,43 +1,60 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import P1 from '../views/P1.vue'
-import P2 from '../views/P2.vue'
-import P3 from '../views/P3.vue'
-import P4 from '../views/P4.vue'
 import P5 from '../views/P5.vue'
 import P6 from '../views/P6.vue'
-import P7 from '../views/P7.vue'
-import P8 from '../views/P8.vue'
-
+// 一次修改
+// 统计
+import Hj from '../pages/tj/Hj.vue'
+import Nh from '../pages/tj/Nh.vue'
+// 设备管理
+import Sbgl from '../pages/sbgl/ShebeiHome.vue'
+import Sbgl1 from '../pages/sbgl/Type1.vue'
+import Sbgl2 from '../pages/sbgl/Type2.vue'
+// 数字安防
+import Szaf from '../pages/szaf/SzafHome.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  // 统计
+  {
+    path: '/tj/hj',
+    name: 'hj',
+    component: Hj,
+  },
+  {
+    path: '/tj/nh',
+    name: 'nh',
+    component: Nh,
+  },
+  // 设备管理
+  {
+    path: '/sbgl',
+    name: 'sbgl',
+    component: Sbgl
+  },
+  {
+    path: '/sbgl/type1',
+    name: 'sbgl1',
+    component: Sbgl1,
+  },
+  {
+    path: '/sbgl/type2',
+    name: 'sbgl2',
+    component: Sbgl2,
+  },
+  // 数字安防
+  {
+    path: '/szaf',
+    name: 'szaf',
+    component: Szaf,
+  },
+  // 一次修改前
   {
     path: '/',
     name: 'home',
     component: HomeView
-  },
-  {
-    path: '/p1',
-    name: 'p1',
-    component: P1
-  },
-  {
-    path: '/p2',
-    name: 'p2',
-    component: P2
-  },
-  {
-    path: '/p3',
-    name: 'p3',
-    component: P3
-  },
-  {
-    path: '/p4',
-    name: 'p4',
-    component: P4
   },
   {
     path: '/p5',
@@ -48,16 +65,6 @@ const routes = [
     path: '/p6',
     name: 'p6',
     component: P6
-  },
-  {
-    path: '/p7',
-    name: 'p7',
-    component: P7
-  },
-  {
-    path: '/p8',
-    name: 'p8',
-    component: P8
   },
 ]
 

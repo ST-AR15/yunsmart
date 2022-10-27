@@ -1,8 +1,8 @@
 <template>
-  <div class="p3">
-    <div class="p3-item" v-for="item in data" :key="item.id">
+  <div class="sbgl1">
+    <div class="sbgl1-item" v-for="item in data" :key="item.id">
       <p><i class="el-icon-share"></i>    {{ item.name }}</p>
-      <div class="p3-item-detail">
+      <div class="sbgl1-item-detail">
         <p>已开启设备</p>
         <p><i class="el-icon-share"></i>{{item.light[0]}}/{{item.light[1]}} | <i class="el-icon-share"></i>{{item.air[0]}}/{{item.air[1]}} | <i class="el-icon-share"></i>{{item.window[0]}}/{{item.window[1]}} | <i class="el-icon-share"></i>{{item.elec[0]}}/{{item.elec[1]}}</p>
       </div>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'P3',
+  name: 'sbgl1',
   data() {
     return {
       data: [
@@ -104,26 +104,28 @@ export default {
 </script>
 
 <style>
-.p3 {
+.sbgl1 {
   width: 80%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: flex-start;
+  align-content: flex-start;
 }
-.p3-item {
+.sbgl1-item {
   width: 40%;
   height: 80px;
   display: flex;
   margin-bottom: 20px;
 }
-.p3-item > p {
+.sbgl1-item > p {
   width: 30%;
   text-align: center;
   line-height: 80px;
   background-color: rgb(7,24,88);
 }
-.p3-item > div {
+.sbgl1-item > div {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
