@@ -491,29 +491,34 @@ export default {
 
 <style>
 .home {
-  /* min-height: 900px;
-  min-width: 900px; */
-  width: 100%;
-  height: 100%;
   display: grid;
-  gap: 0%;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 25% 25% 25% 25%;
-  align-items: stretch;
-  align-content: stretch;
-  justify-items: stretch;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 70% 30%;
+  grid-gap: 20px;
 }
 
 .home-view1 {
-  overflow: auto;
+  /* overflow: auto;
   display: block;
   flex-shrink: 0;
-  flex-direction: column;
-  grid-row: 1/4;
+  flex-direction: column; */
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+
+.home-view2 {
+  /* display: block;
+  overflow: auto;
+  flex-shrink: 0;
+  flex-direction: column; */
+  grid-row: 1/2;
+  grid-column: 2/3;
+  /* padding-top: 5%; */
+}
+
+.home-view3 {
+  grid-row: 2/3;
   grid-column: 1/3;
-  padding: 0% 2%;
-  padding-top: 3%;
-  background-color: rebeccapurple;
 }
 
 .hv-row {
@@ -522,7 +527,7 @@ export default {
   justify-content: space-around;
   flex-wrap: nowrap;
   min-width: 600px;
-  margin: 2% 0 3% 0;
+  margin: 2% 0 1% 0;
 }
 
 .hv-col {
@@ -532,13 +537,13 @@ export default {
   justify-content: space-around;
   flex-wrap: nowrap;
   min-height: 250px;
-  margin: 2% 0% 3% 0%;
+  margin: 2% 0% 1% 0%;
 }
 
 .hv-square-item {
   background-color: aqua;
-  height: 200px;
-  width: 200px;
+  height: 10vw;
+  width: 10vw;
 }
 
 .hv-rectangle-item {
@@ -553,20 +558,5 @@ export default {
 }
 
 
-.home-view2 {
-  display: block;
-  overflow: auto;
-  flex-shrink: 0;
-  flex-direction: column;
-  grid-row: 1/4;
-  grid-column: 3/5;
-  background-color: red;
-  padding-top: 5%;
-}
 
-.home-view3 {
-  grid-row: 4/5;
-  grid-column: 1/5;
-  background: #D1BA74;
-}
 </style>
