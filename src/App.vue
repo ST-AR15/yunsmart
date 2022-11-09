@@ -1,78 +1,5 @@
 <template>
   <div id="app">
-    <!-- <el-container>
-      <el-container>
-        <el-aside width="200px">
-          <el-menu class="el-menu-vertical-demo" :router="true" @open="handleOpen" v-if="testRoom == 0" :default-active="$route.path">
-            <el-submenu index="1">
-              <span slot="title">测试</span>
-              <el-menu-item index="/">首页</el-menu-item>
-              <el-menu-item index="/p1">数字安防首页</el-menu-item>
-              <el-menu-item index="/p2">设备首页</el-menu-item>
-              <el-menu-item index="/p3">设备管理1</el-menu-item>
-              <el-menu-item index="/p4">设备管理2</el-menu-item>
-              <el-menu-item index="/p5">设备管理3</el-menu-item>
-              <el-menu-item index="/p6">设备管理4</el-menu-item>
-              <el-menu-item index="/p7">数据统计1</el-menu-item>
-              <el-menu-item index="/p8">数据统计2</el-menu-item>
-            </el-submenu>
-            <el-submenu index="p1">
-              <span slot="title">数字安防</span>
-              <el-menu-item>监控系统</el-menu-item>
-              <el-menu-item>周界防范</el-menu-item>
-              <el-menu-item>安防报警</el-menu-item>
-              <el-menu-item>出入管理</el-menu-item>
-              <el-menu-item>电子巡更</el-menu-item>
-              <el-menu-item>停车管理</el-menu-item>
-            </el-submenu>
-            <el-submenu index="3">
-              <span slot="title">远程抄表</span>
-              <el-menu-item>水表</el-menu-item>
-              <el-menu-item>电表</el-menu-item>
-              <el-menu-item>燃气表</el-menu-item>
-            </el-submenu>
-            <el-submenu index="4">
-              <span slot="title">设备管理</span>
-              <el-menu-item>灯光控制</el-menu-item>
-              <el-menu-item>空调控制</el-menu-item>
-              <el-menu-item>电器控制</el-menu-item>
-              <el-menu-item>机房控制</el-menu-item>
-              <el-menu-item>停车引导</el-menu-item>
-              <el-menu-item>无线wifi覆盖</el-menu-item>
-            </el-submenu>
-            <el-menu-item index="5">
-              <span slot="title">门禁管理</span>
-            </el-menu-item>
-            <el-menu-item index="6">
-              <span slot="title">信息发布</span>
-            </el-menu-item>
-            <el-menu-item index="7">
-              <span slot="title">智能广播</span>
-            </el-menu-item>
-          </el-menu>
-          <div class="test-room1" v-if="testRoom == 1">
-            <p>楼栋：写字楼A</p>
-            <p>楼层：25</p>
-            <div class="room1">2505室</div>
-            <div class="room1">2506室</div>
-            <div class="room1">2507室</div>
-            <div class="room1">2508室</div>
-            <div class="room1">2509室</div>
-          </div>
-          <div class="test-room2" v-if="testRoom == 2">
-            <div class="room2">地下一层</div>
-            <div class="room2">地下一层</div>
-            <div class="room2">地下一层</div>
-            <div class="room2">地下一层</div>
-            <div class="room2">地下一层</div>
-            <div class="room2">地下一层</div>
-          </div>
-        </el-aside>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
-      </el-container>
-    </el-container> -->
     <header>
       <h1>办公楼智能云平台</h1>
       <nav>
@@ -97,34 +24,17 @@
     </header>
     <section>
       <aside>
-        <el-menu class="el-menu-vertical-demo" :router="true" @open="handleOpen" @close="handleOpen" v-if="testRoom == 0" :default-active="$router.name">
-          <el-submenu index="1">
-            <span slot="title">测试</span>
-            <el-menu-item index="/">首页</el-menu-item>
-            <el-menu-item>(已迁移至数字安防的主菜单)</el-menu-item>
-            <el-menu-item>(已迁移至设备管理的主菜单)</el-menu-item>
-            <el-menu-item>(已迁移至设备管理-第一种)</el-menu-item>
-            <el-menu-item>(已迁移至设备管理-第二种)</el-menu-item>
-            <el-menu-item index="/p5">设备管理3</el-menu-item>
-            <el-menu-item index="/p6">设备管理4</el-menu-item>
-            <el-menu-item>（已迁移至统计-能耗）</el-menu-item>
-            <el-menu-item>（已迁移至统计-环境）</el-menu-item>
-          </el-submenu>
-          <el-submenu index="szaf">
-            <span slot="title">数字安防</span>
-            <el-menu-item>（这里还没有内容）</el-menu-item>
-          </el-submenu>
-          <el-submenu index="sbgl">
-            <span slot="title">设备管理</span>
-            <el-menu-item index="/sbgl/type1">第一种的设备状态</el-menu-item>
-            <el-menu-item index="/sbgl/type2">第二种的灯光控制</el-menu-item>
-          </el-submenu>
-          <el-submenu index="tj">
-            <span slot="title">统计</span>
-            <el-menu-item index="/tj/nh">能耗</el-menu-item>
-            <el-menu-item index="/tj/hj">环境</el-menu-item>
-          </el-submenu>
-        </el-menu>
+        <div class="menu" v-if="testRoom == 0">
+          <template v-for="(item, i) in menu">
+            <p class="menu-submenu" @click="querySubmenu(item.path, i)" v-text="item.title"></p>
+            <ul class="menu-inline" :id="'inlinemenu' + i">
+              <li class="menu-item" v-for="menuitem in item.items">
+                <router-link :to="menuitem.path" v-text="menuitem.title" v-if="menuitem.path"></router-link>
+                <a v-text="menuitem.title" v-else></a>
+              </li>
+            </ul>
+          </template>
+        </div>
         <div class="test-room1" v-if="testRoom == 1">
           <p>楼栋：写字楼A</p>
           <p>楼层：25</p>
@@ -182,7 +92,65 @@ export default {
         username: '',
         password: '',
         vcode: '',
-      }
+      },
+      menu: [
+        {
+          title: "测试",
+          path: "/",
+          items: [
+            {
+              title: "首页",
+              path: "/"
+            },
+            {
+              title: "设备管理3",
+              path: "/p5"
+            },
+            {
+              title: "设备管理4",
+              path: "/p6"
+            },
+          ]
+        },
+        {
+          title: "数字安防",
+          path: "/",
+          items: [
+            {
+              title: "（这里还没有内容）",
+              path: null
+            }
+          ]
+        },
+        {
+          title: "设备管理",
+          path: "/sbgl",
+          items: [
+            {
+              title: "第一种的设备状态",
+              path: "/sbgl/type1"
+            },
+            {
+              title: "第二种的灯光控制",
+              path: "/sbgl/type2"
+            }
+          ]
+        },
+        {
+          title: "统计",
+          path: "/tj",
+          items: [
+          {
+              title: "能耗",
+              path: "/tj/nh"
+            },
+            {
+              title: "环境",
+              path: "/tj/hj"
+            }
+          ]
+        }
+      ]
     }
   },
   methods: {
@@ -193,6 +161,16 @@ export default {
       const list = ['szaf', 'sbgl'];
       if(list.indexOf(key) + 1) {
         this.$router.push('/' + key);
+      }
+    },
+    querySubmenu(path, index) {
+      let len = this.menu.length;
+      for(let i = 0; i < len; i++) {
+        if(index == i) {
+          document.getElementById('inlinemenu' + i).style.height = 50*this.menu[i].items.length + 'px';
+        } else {
+          document.getElementById('inlinemenu' + i).style.height = 0;
+        }
       }
     },
     testRoom1() {
@@ -217,8 +195,9 @@ export default {
 <style>
 /* 全局 */
 :root {
-  --theme-dark: rgb(0, 97, 158);
-  --theme-light: rgb(4, 85, 136);
+  --theme-dark-bg: rgb(0, 97, 158);
+  --theme-light-bg: rgb(4, 85, 136);
+  --font-color: rgb(255, 255, 255);
 }
 
 * {
@@ -242,7 +221,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--theme-dark);
+  background-color: var(--theme-dark-bg);
 }
 
 section {
@@ -256,15 +235,54 @@ aside {
   position: relative;
   width: 14%;
   height: 100%;
-  background-color: var(--theme-dark);
-  overflow: scroll;
+  background-color: var(--theme-dark-bg);
+}
+
+.menu-submenu {
+  height: 56px;
+  line-height: 56px;
+  padding: 0 20px;
+  cursor: pointer;
+  background-color: var(--theme-dark-bg);
+  transition: all .7s;
+}
+.menu-submenu:hover {
+  background-color: var(--theme-light-bg);
+}
+
+.menu-item {
+  height: 50px;
+  line-height: 50px;
+  background-color: var(--theme-dark-bg);
+  transition: all .7s;
+}
+
+.menu-item:hover {
+  background-color: var(--theme-light-bg);
+}
+
+
+.menu-item > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 40px;
+  text-decoration: none;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.menu-inline {
+  /* height: 0; */
+  transition: all .7s;
+  overflow: hidden;
 }
 
 main {
   position: relative;
   width: 86%;
   height: 100%;
-  background-color: var(--theme-light);
+  background-color: var(--theme-light-bg);
   padding: 20px;
   box-sizing: border-box;
 }
