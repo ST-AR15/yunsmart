@@ -6,14 +6,14 @@
         <div id="C2" class="hv-square-item"></div>
       </div>
       <div class="hv-row">
-        <div id="C3" class="hv-square-item"></div>
-        <div id="C4" class="hv-square-item"></div>
-        <div id="C5" class="hv-square-item"></div>
+        <Pie id="C3" :options="Bingtu" />
+        <Pie id="C4" :options="Bingtu" />
+        <Pie id="C5" :options="Bingtu" />
       </div>
       <div class="hv-row">
-        <div id="C6" class="hv-square-item"></div>
-        <div id="C7" class="hv-square-item"></div>
-        <div id="C8" class="hv-square-item"></div>
+        <Pie id="C6" :options="Bingtu" />
+        <Pie id="C7" :options="Bingtu" />
+        <Pie id="C8" :options="Bingtu" />
       </div>
     </div>
     <div class="home-view2">
@@ -23,8 +23,8 @@
         </div>
       </div>
       <div class="hv-row">
-        <div id="C10" class="hv-square-item"></div>
-        <div id="C11" class="hv-square-item"></div>
+        <Pie id="C10" :options="Bingtu" />
+        <Pie id="C11" :options="Bingtu" />
       </div>
       <div class="hv-col">
         <div id="C12" class="hv-rectangle-item"></div>
@@ -38,9 +38,12 @@
 </template>
 
 <script>
-
+import Pie from '@/components/Pie.vue';
 export default {
   name: 'HomeView',
+  components: {
+    Pie,
+  },
   data() {
     return {
       random: 10,
@@ -451,14 +454,6 @@ export default {
   mounted() {
     this.C1 = this.drawChart(document.getElementById('C1'), this.Yibiaopan);
     this.C2 = this.drawChart(document.getElementById('C2'), this.Yibiaopan);
-    this.C3 = this.drawChart(document.getElementById('C3'), this.Bingtu);
-    this.C4 = this.drawChart(document.getElementById('C4'), this.Bingtu);
-    this.C5 = this.drawChart(document.getElementById('C5'), this.Bingtu);
-    this.C6 = this.drawChart(document.getElementById('C6'), this.Bingtu);
-    this.C7 = this.drawChart(document.getElementById('C7'), this.Bingtu);
-    this.C8 = this.drawChart(document.getElementById('C8'), this.Bingtu);
-    this.C10 = this.drawChart(document.getElementById('C10'), this.Bingtu);
-    this.C11 = this.drawChart(document.getElementById('C11'), this.Bingtu);
     this.C12 = this.drawChart(document.getElementById('C12'), this.Bar);
     this.C13 = this.drawChart(document.getElementById('C13'), this.Bar);
     this.C14 = this.drawChart(document.getElementById('C14'), this.Area);
