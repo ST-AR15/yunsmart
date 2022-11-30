@@ -1,12 +1,12 @@
 <template>
-  <div class="pie-chart" :id="id">
+  <div class="dashboard-chart" :id="id">
 
   </div>
 </template>
 
 <script>
 export default {
-  name: "PieChart",
+  name: "DashboardChart",
   props: {
     id: String,
     options: Object,
@@ -17,16 +17,16 @@ export default {
       chart.setOption(options);
       return chart;
     }
-    
   },
   mounted() {
-    this.pieChart = this.drawChart(document.getElementById(this.id), this.options);  
+    let dashboardChart = this.drawChart(document.getElementById(this.id), this.options);
   }
+
 }
 </script>
 
 <style>
-.pie-chart {
+.dashboard-chart {
   background-color: aqua;
   height: 10vw;
   width: 10vw;

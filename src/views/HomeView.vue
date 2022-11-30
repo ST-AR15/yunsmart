@@ -2,8 +2,8 @@
   <div class="home">
     <div class="home-view1">
       <div class="hv-row">
-        <div id="C1" class="hv-square-item"></div>
-        <div id="C2" class="hv-square-item"></div>
+        <Dashboard id="C1" :options="Yibiaopan" />
+        <Dashboard id="C2" :options="Yibiaopan" />
       </div>
       <div class="hv-row">
         <Pie id="C3" :options="Bingtu" />
@@ -38,12 +38,14 @@
 </template>
 
 <script>
+import Dashboard from '@/components/Dashboard.vue';
 import Pie from '@/components/Pie.vue';
 export default {
   name: 'HomeView',
   components: {
     Pie,
-  },
+    Dashboard
+},
   data() {
     return {
       random: 10,
@@ -452,28 +454,26 @@ export default {
     window.addEventListener("resize", this.resizeEvent);
   },
   mounted() {
-    this.C1 = this.drawChart(document.getElementById('C1'), this.Yibiaopan);
-    this.C2 = this.drawChart(document.getElementById('C2'), this.Yibiaopan);
     this.C12 = this.drawChart(document.getElementById('C12'), this.Bar);
     this.C13 = this.drawChart(document.getElementById('C13'), this.Bar);
     this.C14 = this.drawChart(document.getElementById('C14'), this.Area);
-    setInterval(() => {
-      this.random = (Math.random() * 60).toFixed(2);
-      let datas = {
-        series: [
-          {
-            data: [
-              {
-                name: '指示器',
-                value: this.random
-              }
-            ]
-          }
-        ]
-      }
-      this.C1.setOption(datas)
-    }
-      , 2000);
+    // setInterval(() => {
+    //   this.random = (Math.random() * 60).toFixed(2);
+    //   let datas = {
+    //     series: [
+    //       {
+    //         data: [
+    //           {
+    //             name: '指示器',
+    //             value: this.random
+    //           }
+    //         ]
+    //       }
+    //     ]
+    //   }
+    //   this.C1.setOption(datas)
+    // }
+    //   , 2000);
   },
   updated() {
 
