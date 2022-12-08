@@ -167,7 +167,11 @@ export default {
       let len = this.menu.length;
       for(let i = 0; i < len; i++) {
         if(index == i) {
-          document.getElementById('inlinemenu' + i).style.height = 50*this.menu[i].items.length + 'px';
+          if(document.getElementById('inlinemenu' + i).style.height == 50*this.menu[i].items.length + 'px') {
+            document.getElementById('inlinemenu' + i).style.height = 0;
+          } else {
+            document.getElementById('inlinemenu' + i).style.height = 50*this.menu[i].items.length + 'px';
+          }
         } else {
           document.getElementById('inlinemenu' + i).style.height = 0;
         }
@@ -273,8 +277,8 @@ aside {
 }
 
 .menu-inline {
-  /* height: 0; */
-  transition: all .7s;
+  height: 0;
+  transition: all .4s;
   overflow: hidden;
 }
 

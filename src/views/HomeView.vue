@@ -143,64 +143,27 @@ export default {
         ],
       }, //仪表盘样式
       Bingtu: {
-        title: {
-          text: '饼图',
-          subtext: '副标题',
-          left: '10%',
-          top: '5%'
-        },
-        backgroundColor: '#020f18',
-        color: [
-          '#00d2ff',
-          '#22e5d1',
-          '#f4d64e',
-          '#0072ff'
-        ],
-        series: [
+        title: "图表的标题",
+        subTitle: "图表的副标题",
+        data: [
           {
-            type: 'pie',
-            startAngle: 180, //起始角度
-            clockwise: false, //是否顺时针
-            radius: ['30%', '45%'],
-            center: ['50%', '60%'],
-            avoidLabelOverlap: false,
-            label: {
-              emphasis: {
-                show: true
-              }
-            },
-            labelLine: {
-              length: 10,
-              length2: 5,
-            },
-            data: [
-              {
-                value: 55.91,
-                name: '数据1',
-              },
-              {
-                value: 29.46,
-                name: '数据2',
-              },
-              {
-                value: 12.77,
-                name: '数据3',
-              },
-              {
-                value: 5.8,
-                name: '数据4',
-              }
-            ],
-            itemStyle: {
-              normal: {
-                shadowColor: '#37B4CD',
-                shadowBlur: 30,
-                shadowOffsetY: 10
-              },
-            },
+            value: 55.91,
+            name: '第一个',
           },
+          {
+            value: 29.46,
+            name: '第二个',
+          },
+          {
+            value: 12.77,
+            name: '第三个',
+          },
+          {
+            value: 5.8,
+            name: '第四个',
+          }
         ]
-      }, //饼图样式
+      },
       Bar: {
         title: {
           left: '9%',
